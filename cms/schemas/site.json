@@ -1,0 +1,119 @@
+{
+  "apiFields": [
+    {
+      "fieldId": "labNameJa",
+      "name": "研究会名（日本語）",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "labNameEn",
+      "name": "研究会名（英語）",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "affiliationJa",
+      "name": "所属（日本語）",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "affiliationEn",
+      "name": "所属（英語）",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "introJa",
+      "name": "研究会紹介（日本語）",
+      "kind": "textArea",
+      "required": false
+    },
+    {
+      "fieldId": "introEn",
+      "name": "研究会紹介（英語）",
+      "kind": "textArea",
+      "required": false
+    },
+    {
+      "fieldId": "collaborationJa",
+      "name": "対外交流の案内（日本語）",
+      "kind": "textArea",
+      "required": false
+    },
+    {
+      "fieldId": "collaborationEn",
+      "name": "対外交流の案内（英語）",
+      "kind": "textArea",
+      "required": false
+    },
+    {
+      "fieldId": "joiningJa",
+      "name": "参加案内（日本語）",
+      "kind": "textArea",
+      "required": false
+    },
+    {
+      "fieldId": "joiningEn",
+      "name": "参加案内（英語）",
+      "kind": "textArea",
+      "required": false
+    },
+    {
+      "fieldId": "entryNoteJa",
+      "name": "参加に関する補足（日本語）",
+      "kind": "textArea",
+      "required": false
+    },
+    {
+      "fieldId": "entryNoteEn",
+      "name": "参加に関する補足（英語）",
+      "kind": "textArea",
+      "required": false
+    },
+    {
+      "fieldId": "syllabusUrl",
+      "name": "シラバスURL",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "campusUrl",
+      "name": "キャンパス案内URL",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "mapUrl",
+      "name": "GoogleマップURL",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "addressJa",
+      "name": "所在地（日本語）",
+      "kind": "textArea",
+      "required": false
+    },
+    {
+      "fieldId": "addressEn",
+      "name": "所在地（英語）",
+      "kind": "textArea",
+      "required": false
+    },
+    {
+      "fieldId": "accessJa",
+      "name": "アクセス案内（日本語）",
+      "kind": "textArea",
+      "required": false
+    },
+    {
+      "fieldId": "accessEn",
+      "name": "アクセス案内（英語）",
+      "kind": "textArea",
+      "required": false
+    }
+  ],
+  "customFields": []
+}

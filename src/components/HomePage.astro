@@ -1,0 +1,23 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import Introduction from './Introduction.astro';
+import ResearchAreas from './ResearchAreas.astro';
+import Works from './Works.astro';
+import Members from './Members.astro';
+import Connect from './Connect.astro';
+import Access from './Access.astro';
+import type { Locale } from '../data/types';
+interface Props { lang: Locale; }
+const { lang } = Astro.props;
+---
+<SiteLayout lang={lang}>
+  <Introduction lang={lang} />
+  <div class="page-body">
+    <ResearchAreas lang={lang} />
+    <Works lang={lang} />
+    <Members lang={lang} />
+    <Connect lang={lang} />
+    <Access lang={lang} />
+  </div>
+</SiteLayout>
+<script>import '../scripts/cms-home';</script>

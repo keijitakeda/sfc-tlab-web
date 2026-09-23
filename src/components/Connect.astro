@@ -1,0 +1,38 @@
+---
+import SectionHeading from './SectionHeading.astro';
+import TextLink from './TextLink.astro';
+import { links } from '../data/links';
+import { translate } from '../data/site';
+import type { Locale } from '../data/types';
+interface Props { lang: Locale; }
+const { lang } = Astro.props;
+const t = translate(lang);
+---
+<section class="page-section connect-section" id="connect">
+  <SectionHeading lang={lang} number="04" en="Connect with us" ja="交流・参加のご案内" />
+  <div class="connect-grid">
+    <article class="connect-card" id="collaboration">
+      <p class="eyebrow">Collaboration &amp; exchange</p>
+      <h3>{t('共同研究・交流を', 'For collaboration')}<br />{t('お考えの方へ', '& exchange')}</h3>
+      <p data-cms-field="collaboration">{t('共同研究、技術や表現に関する意見交換、展示・取材など、研究会との交流に関するご案内です。', 'For inquiries about collaborative research, exchanges on technology and creative practice, exhibitions, or media coverage.')}</p>
+      <ol class="connect-steps">
+        <li><TextLink href="#research-details">{t('関連する研究領域を知る', 'Explore relevant research areas')}</TextLink></li>
+        <li><TextLink href="#outputs">{t('研究成果・活動をみる', 'Browse works & activities')}</TextLink></li>
+        <li><span>{t('相談内容と所属を添えてご連絡ください。', 'Contact us with your affiliation and a brief description of your inquiry.')}</span></li>
+      </ol>
+      <TextLink class="outline-link" href="#contact">{t('共同研究・交流について問い合わせる', 'Ask about collaboration & exchange')}</TextLink>
+    </article>
+    <article class="connect-card student-connect" id="join">
+      <p class="eyebrow">For prospective students</p>
+      <h3>{t('研究会への参加を', 'For students interested')}<br />{t('検討している方へ', 'in joining the lab')}</h3>
+      <p data-cms-field="joining">{t('関心のある研究テーマを見つけ、研究会の活動内容を確認したうえで、参加・履修についてご相談ください。', 'Explore the research areas and how the lab works, then contact the faculty to discuss participation and enrollment.')}</p>
+      <ol class="connect-steps">
+        <li><TextLink href="#research-details">{t('関心のある研究領域を知る', 'Explore your research interests')}</TextLink></li>
+        <li><TextLink href={links.syllabus} external cmsHref="syllabusUrl">{t('シラバスで活動内容を確認する', 'Review the course syllabus')}</TextLink></li>
+        <li><span>{t('所属・学年と、興味のあるテーマを添えてご連絡ください。', 'Contact us with your affiliation, year of study and research interests.')}</span></li>
+      </ol>
+      <TextLink class="outline-link" href="#contact">{t('研究会への参加について問い合わせる', 'Ask about joining the lab')}</TextLink>
+      <p class="section-note" data-cms-field="entryNote">{t('最新の履修条件・募集時期は担当教員へご確認ください。', 'Please ask the faculty about current enrollment requirements and application periods.')}</p>
+    </article>
+  </div>
+</section>

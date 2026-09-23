@@ -1,0 +1,21 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+import { homePath, translate } from '../data/site';
+import type { Locale } from '../data/types';
+interface Props { lang: Locale; }
+const { lang } = Astro.props;
+const t = translate(lang);
+---
+<SiteLayout lang={lang} detail>
+  <article class="cms-post-page" data-cms-post-page>
+    <a class="text-link cms-post-back" href={`${homePath(lang)}#outputs`}>{t('成果・活動一覧へ戻る', 'Back to works & activities')}</a>
+    <p class="cms-post-status" role="status" data-cms-post-status>{t('記事を読み込んでいます…', 'Loading article…')}</p>
+    <div data-cms-post-content hidden>
+      <div class="post-tags" data-cms-post-tags></div>
+      <h1 data-cms-post-title></h1>
+      <time data-cms-post-date></time>
+      <div class="cms-post-body" data-cms-post-body></div>
+    </div>
+  </article>
+</SiteLayout>
+<script>import '../scripts/cms-post';</script>

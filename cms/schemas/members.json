@@ -1,0 +1,78 @@
+{
+  "apiFields": [
+    {
+      "fieldId": "nameJa",
+      "name": "氏名（日本語）",
+      "kind": "text",
+      "required": true
+    },
+    {
+      "fieldId": "nameEn",
+      "name": "氏名（英語）",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "role",
+      "name": "区分",
+      "kind": "select",
+      "required": true,
+      "selectItems": [
+        {
+          "value": "教員"
+        },
+        {
+          "value": "学生"
+        },
+        {
+          "value": "卒業生"
+        }
+      ],
+      "multipleSelect": false
+    },
+    {
+      "fieldId": "affiliationJa",
+      "name": "所属（日本語）",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "affiliationEn",
+      "name": "所属（英語）",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "bioJa",
+      "name": "紹介文（日本語）",
+      "kind": "textArea",
+      "required": false
+    },
+    {
+      "fieldId": "bioEn",
+      "name": "紹介文（英語）",
+      "kind": "textArea",
+      "required": false
+    },
+    {
+      "fieldId": "researchAreas",
+      "name": "研究領域",
+      "kind": "relationList",
+      "required": false,
+      "referencedApiEndpoint": "research-areas",
+      "listViewFieldId": "nameJa"
+    },
+    {
+      "fieldId": "sortOrder",
+      "name": "表示順",
+      "kind": "number",
+      "required": false,
+      "numberSizeLimitValidation": {
+        "numberSize": {
+          "min": 0
+        }
+      }
+    }
+  ],
+  "customFields": []
+}

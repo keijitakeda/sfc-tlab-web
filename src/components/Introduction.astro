@@ -1,0 +1,21 @@
+---
+import Navigation from './Navigation.astro';
+import TextLink from './TextLink.astro';
+import { lab, translate } from '../data/site';
+import type { Locale } from '../data/types';
+interface Props { lang: Locale; }
+const { lang } = Astro.props;
+const t = translate(lang);
+---
+<section class="lab-intro editorial-intro" id="about" aria-labelledby="intro-title">
+  <div class="intro-summary">
+    <h1 id="intro-title" data-cms-field="labName">{lab.name[lang]}</h1>
+    <p class="intro-affiliation" data-cms-field="affiliation">{lab.affiliation[lang]}</p>
+    <p data-cms-field="intro">{lab.introduction[lang]}</p>
+    <div class="audience-shortcuts">
+      <TextLink href="#collaboration">{t('共同研究・交流について', 'Collaboration & exchange')}</TextLink>
+      <TextLink href="#join">{t('研究会への参加について', 'Joining the lab')}</TextLink>
+    </div>
+  </div>
+  <nav class="editorial-index" aria-label={t('ページ内の各情報へ', 'On this page')}><Navigation lang={lang} /></nav>
+</section>

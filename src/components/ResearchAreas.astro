@@ -1,0 +1,27 @@
+---
+import SectionHeading from './SectionHeading.astro';
+import TextLink from './TextLink.astro';
+import { researchAreas } from '../data/research';
+import { translate } from '../data/site';
+import type { Locale } from '../data/types';
+interface Props { lang: Locale; }
+const { lang } = Astro.props;
+const t = translate(lang);
+---
+<section class="page-section research-section" id="research-details">
+  <SectionHeading lang={lang} number="01" en="Research areas" ja="研究領域" />
+  <div class="research-list" data-cms-list="research-areas">
+    {researchAreas.map((area, index) => <details class="research-detail" id={`research-${area.id}`}>
+      <summary>
+        <span class="area-number">{String(index + 1).padStart(2, '0')}</span>
+        <div class="area-name"><h3>{area.name[lang]}</h3><small>{area.subtitle[lang]}</small></div>
+        <p class="area-summary">{area.summary[lang]}</p>
+        <span class="plus" aria-hidden="true">＋</span>
+      </summary>
+      <div class="detail-copy"><p>{area.description[lang]}</p><div class="detail-links">
+        <TextLink href="#outputs">{t('関連する成果・活動', 'Works & activities')}</TextLink>
+        <TextLink href="#collaboration">{t('この領域について相談する', 'Discuss this research area')}</TextLink>
+      </div></div>
+    </details>)}
+  </div>
+</section>

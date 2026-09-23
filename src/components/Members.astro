@@ -1,0 +1,25 @@
+---
+import SectionHeading from './SectionHeading.astro';
+import TextLink from './TextLink.astro';
+import { faculty } from '../data/members';
+import { links } from '../data/links';
+import { translate } from '../data/site';
+import type { Locale } from '../data/types';
+interface Props { lang: Locale; }
+const { lang } = Astro.props;
+const t = translate(lang);
+---
+<section class="page-section members-section" id="members">
+  <SectionHeading lang={lang} number="03" en="Members" ja="メンバー" />
+  <article class="faculty-profile">
+    <div class="faculty-identity"><p class="member-role">{t('担当教員', 'Faculty')}</p><h3 data-cms-member="faculty-name">{faculty.name[lang]}</h3><p class="member-english" data-cms-member="faculty-alternate">{faculty.alternateName[lang]}</p></div>
+    <div class="faculty-info"><p data-cms-member="faculty-affiliation">{faculty.affiliation[lang]}<br />{faculty.campus[lang]}</p><p class="member-description" data-cms-member="faculty-bio" hidden></p><div class="faculty-links">
+      <TextLink href={links.faculty} external>{t('大学の教員紹介', 'University faculty directory')}</TextLink>
+    </div></div>
+  </article>
+  <details class="student-members">
+    <summary><span>{t('学生・卒業生', 'Students & alumni')}</span><span class="student-toggle">{t('詳細を見る', 'View details')}<span class="plus" aria-hidden="true">＋</span></span></summary>
+    <div class="members-grid" data-cms-list="members"></div>
+    <p class="section-note" data-cms-status="members">{t('学生メンバーのプロフィールは掲載準備中です。', 'Student profiles are being prepared.')}</p>
+  </details>
+</section>

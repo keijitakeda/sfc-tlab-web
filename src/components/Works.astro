@@ -1,0 +1,17 @@
+---
+import SectionHeading from './SectionHeading.astro';
+import { translate } from '../data/site';
+import type { Locale } from '../data/types';
+interface Props { lang: Locale; }
+const { lang } = Astro.props;
+const t = translate(lang);
+---
+<section class="page-section works-section" id="outputs">
+  <SectionHeading lang={lang} number="02" en="Works & activities" ja="研究成果・活動報告" />
+  <div class="post-toolbar">
+    <div class="post-filters" role="group" aria-label={t('記事を絞り込む', 'Filter articles')} hidden></div>
+    <span class="post-count" role="status" aria-live="polite" data-suffix={t('件', ' articles')}>0{t('件', ' articles')}</span>
+  </div>
+  <p class="post-demo-note" data-cms-status="posts">{t('記事は掲載準備中です。', 'Articles are being prepared.')}</p>
+  <ul class="post-list" id="post-list"></ul>
+</section>

@@ -1,0 +1,17 @@
+---
+import Navigation from './Navigation.astro';
+import TextLink from './TextLink.astro';
+import { translate, homePath } from '../data/site';
+import type { Locale } from '../data/types';
+interface Props { lang: Locale; }
+const { lang } = Astro.props;
+const t = translate(lang);
+const brandHref = Astro.url.pathname.includes('/posts/') ? homePath(lang) : '#main';
+---
+<footer class="page-footer"><div class="shell">
+  <div class="footer-top"><a href={brandHref} class="footer-brand">Takeda Lab<span>.</span></a><TextLink href="#main" backToTop>{t('ページ上部へ', 'Back to top')}</TextLink></div>
+  <nav class="footer-site-nav" aria-label={t('フッターナビゲーション', 'Footer navigation')}><Navigation lang={lang} /></nav>
+  <div class="footer-links">
+    <span>{t('慶應義塾大学 SFC / 武田圭史研究室', 'Keio University, SFC / Keiji Takeda Laboratory')}</span>
+  </div>
+</div></footer>

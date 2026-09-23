@@ -1,0 +1,32 @@
+---
+import { links } from '../data/links';
+import { withBase } from '../data/site';
+import ContactSuccessDialog from '../components/ContactSuccessDialog.astro';
+---
+<!doctype html>
+<html lang="ja">
+  <head><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="color-scheme" content="light" /><meta name="robots" content="noindex" /><title>お問い合わせフォーム・デザイン確認 | Takeda Lab.</title></head>
+  <body>
+    <header><a class="brand" href={withBase()}>武田圭史研究室 <small>Takeda Lab.</small></a><span>Design preview</span></header>
+    <main class="contact-preview">
+      <p class="eyebrow">Contact / Design preview</p>
+      <h1>お問い合わせフォーム</h1>
+      <p>共同研究・交流、研究会への参加、取材などのお問い合わせはこちらから。</p>
+      <iframe class="contact-widget" src={withBase('contact-form.html?lang=ja')} title="お問い合わせフォーム" loading="eager"></iframe>
+      <a class="fallback-link" href={links.contactForm} target="_blank" rel="noopener noreferrer">別のお問い合わせページを開く</a>
+    </main>
+    <ContactSuccessDialog lang="ja" />
+  </body>
+</html>
+<style>
+  *{box-sizing:border-box}body{margin:0;background:#fff;color:#26362f;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif}
+  header{height:76px;border-bottom:1px solid #e2e9e3;display:flex;align-items:center;justify-content:space-between;padding:0 max(24px,calc((100vw - 960px)/2));font-size:11px;color:#718078}
+  header .brand{color:#26362f;font-size:15px;text-decoration:none}header small{display:block;margin-top:4px;font-size:9px;color:#718078}
+  .contact-preview{max-width:850px;margin:auto;padding:50px 22px 70px}
+  .eyebrow{font-size:11px;letter-spacing:.09em;color:#668174;margin:0}
+  .contact-preview h1{font-size:clamp(26px,4vw,40px);font-weight:500;margin:12px 0 8px}
+  .contact-preview>p:not(.eyebrow){font-size:13px;color:#5a6d63;line-height:1.8;margin-bottom:24px}
+  .contact-preview iframe{display:block;width:100%;height:930px;border:1px solid #dce6e0;background:#fff;padding:22px}
+  .fallback-link{display:inline-flex;margin-top:16px;min-height:44px;align-items:center;color:#315d53;font-size:12px;text-underline-offset:4px}
+  @media(max-width:620px){header{height:65px;padding-inline:22px}.contact-preview{padding-top:24px}.contact-preview iframe{height:1240px;padding:14px}}
+</style>

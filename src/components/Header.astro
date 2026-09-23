@@ -1,0 +1,28 @@
+---
+import Navigation from './Navigation.astro';
+import { translate, homePath } from '../data/site';
+import type { Locale } from '../data/types';
+interface Props { lang: Locale; }
+const { lang } = Astro.props;
+const t = translate(lang);
+const brandHref = Astro.url.pathname.includes('/posts/') ? homePath(lang) : '#main';
+---
+<a class="skip" href="#main">{t('本文へ移動', 'Skip to content')}</a>
+<header class="site-header">
+  <div class="shell header-row">
+    <a href={brandHref} class="brand" aria-label={t('トップへ', 'Back to home')}><div>
+      <strong data-cms-field="labName">{t('武田圭史研究室', 'Takeda Lab.')}</strong>
+      <small>Keio University, SFC / {t('Takeda Lab.', 'Keiji Takeda Laboratory')}</small>
+    </div></a>
+    <nav class="header-nav" aria-label={t('メインナビゲーション', 'Main navigation')}><Navigation lang={lang} /></nav>
+    <div class="header-tools">
+      <nav class="language-nav" aria-label="Language">
+        {(['ja', 'en'] as const).map(locale => <a href={homePath(locale)} lang={locale} hreflang={locale} aria-current={locale === lang ? 'page' : undefined}>{locale === 'ja' ? 'JP' : 'EN'}</a>)}
+      </nav>
+      <details class="menu">
+        <summary>{t('メニュー ＋', 'Menu +')}</summary>
+        <nav aria-label={t('モバイルナビゲーション', 'Mobile navigation')}><Navigation lang={lang} /></nav>
+      </details>
+    </div>
+  </div>
+</header>

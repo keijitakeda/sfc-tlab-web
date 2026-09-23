@@ -1,0 +1,6 @@
+---
+import type { Locale } from '../data/types';
+interface Props { lang: Locale; number: string; en: string; ja: string; }
+const { lang, number, en, ja } = Astro.props;
+---
+<div class="page-heading"><p>{number} / {en}</p><h2>{lang === 'ja' ? ja : en}</h2></div>

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <style>
+    :root{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;color:#26362f;background:#fff}
+    *{box-sizing:border-box}body{margin:0}button,input,textarea{font:inherit}button{cursor:pointer}
+    .form-shell{max-width:760px;margin:auto;padding:4px 2px 12px}
+    .form-intro{margin:0 0 26px;color:#5a6d63;font-size:14px;line-height:1.8}
+    fieldset{border:0;padding:0;margin:0 0 28px}legend,.field-label{display:block;margin:0 0 10px;font-size:14px;font-weight:600;line-height:1.5}
+    .required{margin-left:7px;color:#8f4b40;font-size:11px;font-weight:500}.optional{margin-left:7px;color:#718078;font-size:11px;font-weight:400}
+    .topic-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+    .topic{position:relative;display:flex;align-items:center;min-height:56px;border:1px solid #d8e2dd;padding:11px 15px;background:#fff;transition:background .18s,border-color .18s;color:#344b3f;font-size:13px;line-height:1.5;cursor:pointer}
+    .topic:hover{border-color:#7c9d8a;background:#f8faf8}.topic:has(input:checked){border-color:#315d53;background:#f1f6f2}
+    .topic input{accent-color:#315d53;width:17px;height:17px;margin:0 11px 0 0;flex:none}
+    .topic:focus-within{outline:2px solid #315d53;outline-offset:2px}
+    .field-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+    .field{display:block;margin-bottom:22px;min-width:0}.field input,.field textarea{width:100%;border:1px solid #cbd8d1;border-radius:0;background:#fff;color:#26362f;padding:13px 14px;min-height:52px;font-size:16px;line-height:1.5;outline:none;transition:border-color .18s,box-shadow .18s}
+    .field textarea{min-height:170px;resize:vertical}.field input:focus,.field textarea:focus{border-color:#315d53;box-shadow:0 0 0 2px #315d5330}.field input::placeholder,.field textarea::placeholder{color:#899890}
+    .field-help{display:block;margin-top:6px;color:#687a6e;font-size:11px;line-height:1.5}
+    .form-footer{display:flex;align-items:center;justify-content:space-between;gap:20px;border-top:1px solid #e0e8e2;padding-top:20px}
+    .form-footer p{font-size:11px;line-height:1.7;color:#687a6e;margin:0}.submit{display:inline-flex;align-items:center;justify-content:center;min-width:180px;min-height:52px;background:#315d53;border:1px solid #315d53;color:white;font-size:13px;font-weight:600;letter-spacing:.04em;padding:12px 24px}
+    .submit:hover{background:#234c42}.submit:focus-visible,.close:focus-visible,a:focus-visible{outline:3px solid #315d53;outline-offset:3px}.submit:disabled{opacity:.58;cursor:wait}
+    .status{min-height:24px;margin:9px 0 0;font-size:12px;line-height:1.6;color:#9a443d}.status:empty{display:none}
+    .fallback{margin:13px 0 0;font-size:12px}.fallback a{color:#315d53;text-decoration:underline;text-underline-offset:3px}
+    .response-frame{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none;border:0}
+    dialog{width:min(450px,calc(100% - 32px));border:1px solid #d6e1d9;border-radius:2px;box-shadow:0 18px 70px #183c2d2b;padding:32px 34px;color:#26362f;text-align:center}dialog::backdrop{background:transparent}
+    .success-symbol{display:grid;place-items:center;width:44px;height:44px;margin:0 auto 19px;border:1px solid #548370;border-radius:50%;color:#315d53;font-size:25px}dialog h2{font-size:22px;font-weight:500;margin:0 0 12px}dialog p{font-size:13px;line-height:1.8;color:#5a6d63;margin:0 0 24px}.close{min-width:150px;min-height:46px;background:#315d53;border:0;color:#fff;font-size:13px}
+    @media(max-width:620px){.form-shell{padding:0 1px 8px}.topic-grid,.field-grid{grid-template-columns:1fr}.topic-grid{gap:7px}.topic{min-height:50px}.field-grid{gap:0}.form-footer{align-items:stretch;flex-direction:column}.submit{width:100%}dialog{padding:27px 22px}}
+    @media(prefers-reduced-motion:reduce){.topic,.field input,.field textarea{transition:none}}
+  </style>
+</head>
+<body>
+  <main class="form-shell">
+    <p class="form-intro" data-en="Contact us about collaboration, research exchange, media inquiries, or joining the lab.">共同研究・交流、研究会への参加・履修、取材などについて、こちらからご連絡ください。</p>
+    <form id="contact-form" action="https://docs.google.com/forms/d/e/1FAIpQLSfaKR2vP4nubjmFWmEB615r5zzYjZopKW10Dxn8tdTFDdWSrw/formResponse" method="POST" target="google-form-response">
+      <input type="hidden" name="fvv" value="1">
+      <input type="hidden" name="pageHistory" value="0">
+      <fieldset>
+        <legend><span data-en="Inquiry type">お問い合わせの種類</span> <span class="required" data-en="Required">必須</span></legend>
+        <div class="topic-grid">
+          <label class="topic"><input type="radio" name="entry.975197767" value="共同研究・交流" required><span data-en="Collaboration & exchange">共同研究・交流</span></label>
+          <label class="topic"><input type="radio" name="entry.975197767" value="研究会への参加・履修"><span data-en="Joining the lab">研究会への参加・履修</span></label>
+          <label class="topic"><input type="radio" name="entry.975197767" value="取材・展示"><span data-en="Media & exhibition">取材・展示</span></label>
+          <label class="topic"><input type="radio" name="entry.975197767" value="その他"><span data-en="Other">その他</span></label>
+        </div>
+      </fieldset>
+      <div class="field-grid">
+        <label class="field"><span class="field-label"><span data-en="Name">お名前</span> <span class="required" data-en="Required">必須</span></span><input name="entry.725987081" autocomplete="name" maxlength="100" required placeholder="例：山田 太郎" data-en-placeholder="Your name"></label>
+        <label class="field"><span class="field-label"><span data-en="Affiliation / year">所属・学年</span> <span class="optional" data-en="Optional">任意</span></span><input name="entry.1003035947" autocomplete="organization" maxlength="200" placeholder="例：慶應義塾大学 2年" data-en-placeholder="University or organization, year of study"></label>
+      </div>
+      <label class="field"><span class="field-label"><span data-en="Reply-to email address">返信先メールアドレス</span> <span class="required" data-en="Required">必須</span></span><input name="entry.1107352439" type="email" autocomplete="email" maxlength="254" required placeholder="name@example.com"><span class="field-help" data-en="We will use this address to reply to you.">返信のために使用します。</span></label>
+      <label class="field"><span class="field-label"><span data-en="Inquiry">お問い合わせ内容</span> <span class="required" data-en="Required">必須</span></span><textarea name="entry.1509866899" maxlength="5000" required placeholder="ご相談の内容をご記入ください。" data-en-placeholder="Tell us about your inquiry."></textarea></label>
+      <div class="form-footer"><p data-en="Please complete the required fields before sending.">必須項目をご入力のうえ送信してください。</p><button class="submit" type="submit" data-en="Send inquiry">送信する</button></div>
+      <p class="status" id="form-status" role="alert"></p>
+      <p class="fallback"><span data-en="If sending does not work, please use ">送信できない場合は</span><a href="https://docs.google.com/forms/d/e/1FAIpQLSfaKR2vP4nubjmFWmEB615r5zzYjZopKW10Dxn8tdTFDdWSrw/viewform" target="_blank" rel="noopener noreferrer" data-en="the alternate contact page">別のお問い合わせページをご利用ください</a><span data-en=".">。</span></p>
+    </form>
+    <iframe class="response-frame" name="google-form-response" id="google-form-response" title="送信処理用" aria-hidden="true"></iframe>
+  </main>
+  <dialog id="success-dialog" aria-labelledby="success-title"><span class="success-symbol" aria-hidden="true">✓</span><h2 id="success-title" data-en="Inquiry sent">お問い合わせを送信しました</h2><p data-en="Thank you for contacting us.">お問い合わせありがとうございます。</p><button class="close" type="button" data-en="Close">閉じる</button></dialog>
+  <script>
+    const isEnglish=new URLSearchParams(location.search).get('lang')==='en';
+    if(isEnglish){
+      document.documentElement.lang='en';
+      document.querySelectorAll('[data-en]').forEach(element=>{element.textContent=element.dataset.en;});
+      document.querySelectorAll('[data-en-placeholder]').forEach(element=>{element.placeholder=element.dataset.enPlaceholder;});
+    }
+    const message=(ja,en)=>isEnglish?en:ja;
+    const form=document.getElementById('contact-form');
+    const button=form.querySelector('.submit');
+    const status=document.getElementById('form-status');
+    const dialog=document.getElementById('success-dialog');
+    const close=dialog.querySelector('.close');
+    close.addEventListener('click',()=>dialog.close());
+    const responseFrame=document.getElementById('google-form-response');
+    let sending=false;
+    let timeoutId;
+    responseFrame.addEventListener('load',()=>{
+      if(!sending)return;
+      sending=false;
+      clearTimeout(timeoutId);
+      button.disabled=false;
+      button.textContent=message('送信する','Send inquiry');
+      status.textContent='';
+      form.reset();
+      if(window.parent!==window){
+        window.parent.postMessage({type:'takeda-contact:submitted'},location.origin);
+      }else{
+        dialog.showModal();
+        close.focus();
+      }
+    });
+    form.addEventListener('submit',event=>{
+      if(sending){event.preventDefault();return;}
+      sending=true;
+      button.disabled=true;
+      button.textContent=message('送信中…','Sending…');
+      status.textContent=message('送信しています…','Sending…');
+      timeoutId=setTimeout(()=>{
+        if(!sending)return;
+        sending=false;
+        button.disabled=false;
+        button.textContent=message('送信する','Send inquiry');
+        status.textContent=message('送信を完了できませんでした。下の別のお問い合わせページからお試しください。','We could not complete the submission. Please try the alternate contact page below.');
+      },15000);
+    });
+  </script>
+</body>
+</html>

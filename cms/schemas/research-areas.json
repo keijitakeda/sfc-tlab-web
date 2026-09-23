@@ -1,0 +1,76 @@
+{
+  "apiFields": [
+    {
+      "fieldId": "nameJa",
+      "name": "領域名（日本語）",
+      "kind": "text",
+      "required": true
+    },
+    {
+      "fieldId": "nameEn",
+      "name": "領域名（英語）",
+      "kind": "text",
+      "required": false
+    },
+    {
+      "fieldId": "summaryJa",
+      "name": "短い説明（日本語）",
+      "kind": "textArea",
+      "required": false
+    },
+    {
+      "fieldId": "summaryEn",
+      "name": "短い説明（英語）",
+      "kind": "textArea",
+      "required": false
+    },
+    {
+      "fieldId": "descriptionJa",
+      "name": "詳細（日本語）",
+      "kind": "richEditorV2",
+      "required": false,
+      "richEditorV2Options": [
+        "headerTwo",
+        "headerThree",
+        "paragraph",
+        "bold",
+        "italic",
+        "blockquote",
+        "listBullet",
+        "listOrdered",
+        "link",
+        "image"
+      ]
+    },
+    {
+      "fieldId": "descriptionEn",
+      "name": "詳細（英語）",
+      "kind": "richEditorV2",
+      "required": false,
+      "richEditorV2Options": [
+        "headerTwo",
+        "headerThree",
+        "paragraph",
+        "bold",
+        "italic",
+        "blockquote",
+        "listBullet",
+        "listOrdered",
+        "link",
+        "image"
+      ]
+    },
+    {
+      "fieldId": "sortOrder",
+      "name": "表示順",
+      "kind": "number",
+      "required": false,
+      "numberSizeLimitValidation": {
+        "numberSize": {
+          "min": 0
+        }
+      }
+    }
+  ],
+  "customFields": []
+}

@@ -1,0 +1,32 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { translate, withBase, homePath } from '../data/site';
+import type { Locale } from '../data/types';
+interface Props { lang: Locale; detail?: boolean; }
+const { lang, detail = false } = Astro.props;
+const t = translate(lang);
+const canonical = !detail && Astro.site ? new URL(homePath(lang), Astro.site) : undefined;
+// Preserve the original G design cascade.
+const stylesheets = ['takeda-visual.css', 'takeda-kinetic.css', 'takeda-page.css', 'takeda-editorial.css', 'takeda-list.css'];
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={t('武田圭史研究室の研究領域・研究成果・メンバー・交流と参加のご案内。', 'Explore Takeda Lab research, work, members, collaboration and student participation.')} />
+    <title>{t('武田圭史研究室', 'Keiji Takeda Laboratory')} | Takeda Lab.</title>
+    {canonical && <link rel="canonical" href={canonical} />}
+    {!detail && (['ja', 'en'] as const).map(locale => <link rel="alternate" hreflang={locale} href={Astro.site ? new URL(homePath(locale), Astro.site) : homePath(locale)} />)}
+    {stylesheets.map(file => <link rel="stylesheet" href={withBase(file)} />)}
+  </head>
+  <body data-layout="hybrid" data-intro="editorial" data-variant="g">
+    <Header lang={lang} />
+    <main class="shell" id="main"><slot /></main>
+    <Footer lang={lang} />
+    <script>import '../scripts/navigation';</script>
+  </body>
+</html>

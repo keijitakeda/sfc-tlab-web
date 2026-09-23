@@ -1,0 +1,8 @@
+---
+import { navItems, homePath } from '../data/site';
+import type { Locale } from '../data/types';
+interface Props { lang: Locale; }
+const { lang } = Astro.props;
+const homePrefix = Astro.url.pathname.includes('/posts/') ? homePath(lang) : '';
+---
+{navItems.map(item => <a href={`${homePrefix}#${item.id}`}>{item.label[lang]}</a>)}

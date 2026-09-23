@@ -1,0 +1,8 @@
+---
+interface Props { href: string; class?: string; external?: boolean; backToTop?: boolean; cmsHref?: string; }
+const { href, class: className = 'text-link', external = false, backToTop = false, cmsHref } = Astro.props;
+---
+<a class={className} href={href} target={external ? '_blank' : undefined} rel={external ? 'noopener noreferrer' : undefined} data-cms-href={cmsHref}>
+  <slot />
+  {backToTop && <svg class="back-to-top-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.25" aria-hidden="true"><path d="M8 13V3m-4 4 4-4 4 4" /></svg>}
+</a>

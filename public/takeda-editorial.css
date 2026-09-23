@@ -1,0 +1,161 @@
+/* E: a compact academic profile, inspired by the reading rhythm of chujo.me. */
+body[data-layout=editorial]{--ink:#202020;--muted:#616161;--accent:#202020;--line:#e5e5e5;--section-accent:#555;--section-tint:#f7f7f7;--section-line:#e6e6e6;font-family:Arial,'Hiragino Sans','Noto Sans JP',sans-serif;font-size:14px;line-height:1.85;color:var(--ink)}
+body[data-layout=editorial] .shell{max-width:920px;padding-inline:40px}
+body[data-layout=editorial] .site-header{background:#fff}
+body[data-layout=editorial] .header-row{max-width:none;height:52px;padding-inline:40px}
+body[data-layout=editorial] .brand strong{font:700 14px/1 Arial,sans-serif;letter-spacing:.055em}
+body[data-layout=editorial] .brand small,body[data-layout=editorial] .header-nav{display:none}
+body[data-layout=editorial] .language-nav{font-family:Arial,sans-serif;gap:10px}
+body[data-layout=editorial] .language-nav a{color:#666}
+body[data-layout=editorial] .language-nav a[aria-current]{color:#202020;font-weight:700}
+body[data-intro=editorial] .lab-intro{border:0;margin:0;padding:34px 0 0;grid-template-columns:minmax(0,1fr) 196px;gap:18px 44px;align-items:start}
+body[data-intro=editorial] .intro-summary h1{font-size:24px;font-weight:700;letter-spacing:0;line-height:1.4}
+body[data-intro=editorial] .intro-summary>p{font-size:14px;line-height:1.9;color:#303030;margin-top:16px;max-width:40em}
+body[data-intro=editorial] .intro-summary .intro-affiliation{margin-top:5px;font-size:12px;color:#606060}
+body[data-intro=editorial] .audience-shortcuts{flex-direction:column;gap:0;margin-top:11px;align-items:flex-start;justify-content:flex-start}
+body[data-intro=editorial] .audience-shortcuts a{flex:none;font-size:12px;padding:5px 0;border:0;gap:12px;min-height:38px}
+body[data-layout=editorial] .text-link{font-size:12px;color:#333;gap:10px;text-decoration:underline;text-underline-offset:4px;text-decoration-color:#aaa}
+body[data-layout=editorial] .text-link:hover{text-decoration-color:#222}
+.editorial-index{grid-column:2;display:flex;flex-direction:column;gap:0;border-left:1px solid #dedede;padding-left:24px;margin:0}
+.editorial-index a{font-size:12px;min-height:34px;display:flex;align-items:center;line-height:1.7}
+.editorial-index a:hover{text-decoration:underline;text-underline-offset:4px}
+body[data-intro=editorial] .about-more{border-top:1px solid #dedede}
+body[data-intro=editorial] .about-more>summary{min-height:44px;font-size:12px;color:#606060}
+body[data-intro=editorial] .about-more .plus{font:18px Arial,sans-serif}
+body[data-layout=editorial] .page-section{padding:30px 0 32px;border-top:1px solid #dedede}
+body[data-layout=editorial] .research-section{padding-top:17px;border-top:0}
+body[data-layout=editorial] .page-heading{display:flex;align-items:baseline;flex-wrap:wrap;gap:0 16px;margin-bottom:20px}
+body[data-layout=editorial] .page-heading>p{order:2;font:11px Arial,sans-serif;letter-spacing:.025em;color:#696969;margin:0}
+body[data-layout=editorial] .page-heading h2{font-size:19px;font-weight:700;letter-spacing:0}
+body[data-layout=editorial] .page-heading>span{order:3;flex-basis:100%;font-size:12px;color:#656565;margin-top:5px}
+.editorial-research{display:grid;grid-template-columns:1fr 1fr;gap:24px 40px}
+.editorial-research article{scroll-margin-top:80px}
+.editorial-research h3{font-size:15px;font-weight:700;line-height:1.5}
+.editorial-research h3 small{font:11px Arial,sans-serif;color:#707070;margin-left:10px;font-weight:400}
+.editorial-research p{font-size:13px;line-height:1.9;margin-top:7px;color:#4a4a4a}
+body[data-layout=editorial] .works-grid{display:block}
+body[data-layout=editorial] .work-card{display:grid;grid-template-columns:108px minmax(0,1fr);column-gap:22px;padding:18px 0;border-top:1px solid #ededed}
+body[data-layout=editorial] .work-card:first-child{padding-top:0;border-top:0}
+body[data-layout=editorial] .work-card:last-child{padding-bottom:0}
+body[data-layout=editorial] .work-card .media-slot{grid-column:1;grid-row:1/4;height:96px;background:#f7f7f7;border:0}
+body[data-layout=editorial] .work-card .slot-art{transform:scale(.44);margin-top:-10px}
+body[data-layout=editorial] .slot-label{font-size:9px;bottom:8px;left:6px;right:6px;color:#686868;line-height:1.5}
+body[data-layout=editorial] .work-meta{grid-column:2;margin:0 0 3px;justify-content:flex-start;gap:16px;font-size:10px;color:#606060}
+body[data-layout=editorial] .work-card h3{grid-column:2;font-size:16px;font-weight:700}
+body[data-layout=editorial] .work-card>p{grid-column:2;font-size:13px;color:#555;margin-top:5px}
+body[data-layout=editorial] .members-grid{grid-template-columns:1fr 1fr;gap:24px 40px}
+body[data-layout=editorial] .member-card{display:grid;grid-template-columns:78px minmax(0,1fr);align-content:start;column-gap:18px}
+body[data-layout=editorial] .member-card .media-slot{grid-column:1;grid-row:1/7;width:78px;height:100px;aspect-ratio:auto;border:0}
+body[data-layout=editorial] .slot-portrait .slot-art{transform:scale(.4);margin-top:-10px}
+body[data-layout=editorial] .member-card>*:not(.media-slot){grid-column:2}
+body[data-layout=editorial] .member-role{font-size:10px;margin:0;color:#666;letter-spacing:0}
+body[data-layout=editorial] .member-card h3{font-size:17px;font-weight:700;letter-spacing:0;margin-top:3px;color:#222}
+body[data-layout=editorial] .student-card h3{font-weight:400;color:#666}
+body[data-layout=editorial] .member-english{font:11px/1.6 Arial,sans-serif;color:#666}
+body[data-layout=editorial] .member-description{font-size:12px;color:#555;margin-top:7px}
+body[data-layout=editorial] .member-card .text-link{margin-top:4px;font-size:11px;min-height:36px;justify-self:start}
+body[data-layout=editorial] .section-note{font-size:11px;color:#666;margin-top:18px}
+body[data-layout=editorial] .connect-grid{gap:40px}
+body[data-layout=editorial] .connect-card{padding:0;background:none;border:0}
+body[data-layout=editorial] .connect-card .eyebrow{font:11px Arial,sans-serif;letter-spacing:0;color:#666}
+body[data-layout=editorial] .connect-card h3{font-size:18px;font-weight:700;line-height:1.55;margin:8px 0 12px}
+body[data-layout=editorial] .connect-card h3 br{display:none}
+body[data-layout=editorial] .connect-card>p:not(.eyebrow):not(.section-note){font-size:13px;color:#4a4a4a}
+body[data-layout=editorial] .connect-steps{margin:17px 0 18px}
+body[data-layout=editorial] .connect-steps li{border-color:#e8e8e8;color:#555;font-size:12px;gap:12px}
+body[data-layout=editorial] .connect-steps li:before{color:#777}
+body[data-layout=editorial] .outline-link{border:1px solid #aaa;background:#fff;color:#222;font-size:12px;border-radius:0}
+body[data-layout=editorial] .outline-link:hover{background:#f6f6f6}
+body[data-layout=editorial] .campus-photo{display:none}
+body[data-layout=editorial] .campus-layout{display:block}
+body[data-layout=editorial] .access-copy{display:grid;grid-template-columns:1fr 1fr;column-gap:40px}
+body[data-layout=editorial] .access-copy>.eyebrow{font:11px Arial,sans-serif;color:#666;grid-column:1}
+body[data-layout=editorial] .access-copy h3{grid-column:1;grid-row:2;font-size:17px;font-weight:700;margin:7px 0 0;line-height:1.7}
+body[data-layout=editorial] .access-copy address{grid-column:1;grid-row:3;margin-top:10px;font-size:13px;color:#444}
+body[data-layout=editorial] .access-copy>p:not(.eyebrow){grid-column:2;grid-row:2;margin:0;color:#555;font-size:12px}
+body[data-layout=editorial] .access-links{grid-column:2;grid-row:3;gap:16px;align-content:start}
+body[data-layout=editorial] .access-copy>.section-note{grid-row:4!important;margin-top:10px!important;font-size:11px!important}
+body[data-layout=editorial] .contact-block{margin-top:25px;padding-top:22px;gap:20px 40px}
+body[data-layout=editorial] .contact-block .eyebrow{display:none}
+body[data-layout=editorial] .contact-block h3{font-size:16px;font-weight:700;margin:0 0 7px}
+body[data-layout=editorial] .contact-block>div>p:not(.section-note){color:#555}
+body[data-layout=editorial] .contact-email{font:20px Arial,sans-serif;color:#222;text-decoration:underline;text-underline-offset:5px;gap:18px;min-height:36px}
+body[data-layout=editorial] .contact-email .arrow{font-size:17px}
+body[data-layout=editorial] .contact-block .section-note{font-size:10px;margin-top:5px}
+body[data-layout=editorial] .page-footer{background:white;padding:25px 0}
+body[data-layout=editorial] .footer-brand{font:700 17px Arial,sans-serif}
+body[data-layout=editorial] .footer-brand span{color:#222}
+body[data-layout=editorial] .footer-site-nav{margin-top:14px;gap:24px}
+body[data-layout=editorial] .footer-site-nav a{font-size:11px;color:#555}
+body[data-layout=editorial] .footer-links{margin-top:14px;color:#666;font-size:10px}
+body[data-layout=editorial] .footer-links nav a{font-size:11px}
+body[data-layout=editorial] .prototype-note{color:#777;font-size:10px;line-height:1.8;margin-top:14px}
+@media(max-width:760px){
+ body[data-layout=editorial] .shell{padding-inline:26px}
+ body[data-layout=editorial] .header-row{padding-inline:26px}
+ body[data-intro=editorial] .lab-intro{grid-template-columns:minmax(0,1fr) 172px;column-gap:28px;padding-top:28px}
+ body[data-intro=editorial] .intro-summary h1{font-size:21px}
+ .editorial-index{padding-left:20px}
+ .editorial-research{gap:24px}
+ body[data-layout=editorial] .connect-grid{gap:28px}
+ body[data-layout=editorial] .contact-block{grid-template-columns:1fr 1fr}
+}
+@media(max-width:620px){
+ body[data-layout=editorial] .shell,body[data-layout=editorial] .header-row{padding-inline:22px}
+ body[data-layout=editorial] .header-row{height:56px;gap:12px}
+ body[data-layout=editorial] .brand strong{font-size:13px}
+ body[data-intro=editorial] .lab-intro{grid-template-columns:1fr;gap:18px;padding-top:27px}
+ body[data-intro=editorial] .intro-summary{display:block}
+ body[data-intro=editorial] .intro-summary h1{font-size:22px;line-height:1.5;padding:0}
+ body[data-intro=editorial] .intro-summary .intro-affiliation{font-size:11px;line-height:1.7;margin:5px 0 0}
+ body[data-intro=editorial] .intro-summary>p:not(.intro-affiliation){font-size:13px;margin-top:16px;line-height:1.95}
+ body[data-intro=editorial] .audience-shortcuts{display:flex;flex-direction:column;align-items:flex-start;gap:0;margin-top:9px}
+ body[data-intro=editorial] .audience-shortcuts a{min-height:44px;font-size:12px;justify-content:flex-start;border:0}
+ .editorial-index{grid-column:1;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(3,auto);grid-auto-flow:column;gap:0 20px;border:0;border-top:1px solid #dedede;margin:0;padding:11px 0 0}
+ .editorial-index a{font-size:12px;min-height:44px;line-height:1.65}
+ body[data-intro=editorial] .about-more>summary{font-size:11px;min-height:44px}
+ body[data-layout=editorial] .page-section{padding:26px 0}
+ body[data-layout=editorial] .research-section{padding-top:18px}
+ body[data-layout=editorial] .page-heading{margin-bottom:20px;gap:0 12px}
+ body[data-layout=editorial] .page-heading h2{font-size:18px}
+ body[data-layout=editorial] .page-heading>p{font-size:10px}
+ .editorial-research{grid-template-columns:1fr;gap:23px}
+ .editorial-research h3{font-size:15px}.editorial-research p{font-size:13px}
+ body[data-layout=editorial] .work-card{grid-template-columns:82px minmax(0,1fr);column-gap:16px}
+ body[data-layout=editorial] .work-card .media-slot{height:94px}
+ body[data-layout=editorial] .work-card h3{font-size:15px}
+ body[data-layout=editorial] .work-card>p{font-size:12px}
+ body[data-layout=editorial] .work-meta{gap:8px;font-size:9px}
+ body[data-layout=editorial] .work-meta>span:last-child{font-size:9px}
+ body[data-layout=editorial] .members-grid{grid-template-columns:1fr;gap:24px}
+ body[data-layout=editorial] .member-card{grid-template-columns:70px minmax(0,1fr)}
+ body[data-layout=editorial] .member-card .media-slot{width:70px;height:92px}
+ body[data-layout=editorial] .connect-grid{grid-template-columns:1fr;gap:28px}
+ body[data-layout=editorial] .connect-card+.connect-card{padding-top:26px;border-top:1px solid #e5e5e5}
+ body[data-layout=editorial] .access-copy{display:block}
+ body[data-layout=editorial] .access-copy>p:not(.eyebrow){margin-top:16px}
+ body[data-layout=editorial] .contact-block{grid-template-columns:1fr;gap:15px}
+ body[data-layout=editorial] .contact-email{font-size:22px}
+ body[data-layout=editorial] .footer-site-nav{gap:0 16px}
+ body[data-layout=editorial] .footer-links{gap:8px}
+ html[lang=en] body[data-intro=editorial] .intro-summary h1{font-size:22px}
+ html[lang=en] body[data-intro=editorial] .intro-summary .intro-affiliation{font-size:11px;margin-top:5px}
+}
+
+/* F: the E introduction above D's image-led research and member cards. */
+body[data-layout=hybrid] .shell{max-width:1040px;padding-inline:40px}
+body[data-layout=hybrid] .header-row{max-width:1344px;padding-inline:56px}
+body[data-layout=hybrid] .intro-summary{font-family:Arial,'Hiragino Sans','Noto Sans JP',sans-serif}
+body[data-layout=hybrid] .editorial-index{font-family:Arial,'Hiragino Sans','Noto Sans JP',sans-serif;color:#333}
+body[data-layout=hybrid] .intro-summary .text-link{color:#333;text-decoration:underline;text-underline-offset:4px;text-decoration-color:#aaa}
+body[data-layout=hybrid] .research-section{padding-top:23px;border-top:0}
+body[data-layout=hybrid] .research-detail{border-radius:5px}
+body[data-layout=hybrid] .research-thumb{border-radius:2px}
+body[data-layout=hybrid] .works-grid .media-slot{height:128px}
+@media(max-width:760px){body[data-layout=hybrid] .shell{padding-inline:26px}}
+@media(max-width:620px){body[data-layout=hybrid] .shell{padding-inline:22px}body[data-layout=hybrid] .research-section{padding-top:18px}body[data-layout=hybrid] .works-grid .media-slot{height:148px}}
+
+/* F uses the same header width and breakpoints as A–C. */
+@media(min-width:1500px){body[data-layout=hybrid] .header-row{max-width:1456px;padding-inline:64px}}
+@media(max-width:1100px){body[data-layout=hybrid] .header-row{padding-inline:34px}}
+@media(max-width:620px){body[data-layout=hybrid] .header-row{padding-inline:22px}}

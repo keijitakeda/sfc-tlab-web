@@ -1,0 +1,17 @@
+{
+  "apiFields": [
+    {
+      "fieldId": "nameJa",
+      "name": "タグ名（日本語）",
+      "kind": "text",
+      "required": true
+    },
+    {
+      "fieldId": "nameEn",
+      "name": "タグ名（英語）",
+      "kind": "text",
+      "required": false
+    }
+  ],
+  "customFields": []
+}

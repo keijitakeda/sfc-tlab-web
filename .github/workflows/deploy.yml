@@ -1,0 +1,43 @@
+name: Deploy site to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v7
+      - name: Require the published-content CMS key
+        env:
+          PUBLIC_MICROCMS_API_KEY: ${{ secrets.PUBLIC_MICROCMS_API_KEY }}
+        run: test -n "$PUBLIC_MICROCMS_API_KEY"
+      - name: Install, build and upload the site
+        uses: withastro/action@v6
+        env:
+          GITHUB_PAGES: 'true'
+          PUBLIC_MICROCMS_SERVICE_ID: t-lab
+          PUBLIC_MICROCMS_API_KEY: ${{ secrets.PUBLIC_MICROCMS_API_KEY }}
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

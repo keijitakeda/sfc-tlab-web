@@ -3,7 +3,7 @@ import { readFile, readdir, stat } from 'node:fs/promises';
 import path from 'node:path';
 
 const dist = path.resolve('dist');
-const base = '/';
+const base = process.env.GITHUB_PAGES === 'true' ? '/sfc-tlab-web/' : '/';
 const origin = 'http://localhost:4321';
 const documents = [];
 async function walk(directory) {
@@ -36,7 +36,8 @@ for (const filename of documents) {
   assert.equal(ids.length, new Set(ids).size, `Duplicate IDs in ${filename}`);
   for (const value of [...attributes(html, 'href'), ...attributes(html, 'src')]) {
     const url = new URL(value.replaceAll('&amp;', '&'), pageUrl);
-    if (url.origin !== origin || !url.pathname.startsWith(base)) continue;
+    if (url.origin !== origin) continue;
+    assert.ok(url.pathname.startsWith(base), `${filename}: link outside deployment path: ${value}`);
     const target = await resolveFile(url);
     assert.ok(target, `${filename}: missing ${value}`);
     if (url.hash && target.endsWith('.html')) {
@@ -56,7 +57,7 @@ for (const route of ['index.html', 'en/index.html', 'takeda-kinetic-g.html', 'ta
   assert.match(html, /<details class="student-members">/);
   assert.doesNotMatch(html, /id="practice"|<img\b/);
   assert.match(html, /class="campus-map"/);
-  assert.match(html, /href="\/en\/"/);
+  assert.ok(html.includes(`href="${base}en/"`), `${route}: missing English navigation`);
 }
 for (const route of ['posts/index.html', 'en/posts/index.html']) {
   const html = await read(path.join(dist, route));

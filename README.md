@@ -51,6 +51,6 @@ microCMSサービス `SFC-T-Lab-Web` (`t-lab.microcms.io`) の `site`、`researc
 
 ## Gitと公開先
 
-このディレクトリは独立したローカルGitリポジトリです。G案の元リポジトリは [tlab-design-test](https://github.com/Hayato1031/tlab-design-test) です。次の候補は非公開の [sfc-tlab-web](https://github.com/keijitakeda/sfc-tlab-web) ですが、この変更はレビュー前なのでまだアップロードしていません。公開URLが確定したら、リンクや画像が正しい場所を指すよう公開設定を合わせます。Astroの `site` と `base` はこのURLに関する設定で、microCMSの `site`（掲載内容）やページの色とは無関係です。
+このディレクトリは独立したローカルGitリポジトリで、[sfc-tlab-web](https://github.com/keijitakeda/sfc-tlab-web) の `main` に接続しています。G案の元リポジトリは [tlab-design-test](https://github.com/Hayato1031/tlab-design-test) です。`.github/workflows/deploy.yml` は `main` へのプッシュ時にGitHub Pagesへビルド・公開します。リポジトリのActionsシークレット `PUBLIC_MICROCMS_API_KEY` に、公開済みコンテンツのGETだけを許可したキーを設定し、管理者がPagesの公開元を「GitHub Actions」に設定する必要があります。GitHub Pages向けビルドでは `/sfc-tlab-web/` を使い、ローカル開発では従来どおり `/` で表示します。
 
 `dist/` は生成物です。直接編集しないでください。

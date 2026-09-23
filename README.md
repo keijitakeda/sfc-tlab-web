@@ -51,6 +51,14 @@ microCMSサービス `SFC-T-Lab-Web` (`t-lab.microcms.io`) の `site`、`researc
 
 ## Gitと公開先
 
-このディレクトリは独立したローカルGitリポジトリで、[sfc-tlab-web](https://github.com/keijitakeda/sfc-tlab-web) の `main` に接続しています。G案の元リポジトリは [tlab-design-test](https://github.com/Hayato1031/tlab-design-test) です。`.github/workflows/deploy.yml` は `main` へのプッシュ時にGitHub Pagesへビルド・公開します。リポジトリのActionsシークレット `PUBLIC_MICROCMS_API_KEY` に、公開済みコンテンツのGETだけを許可したキーを設定し、管理者がPagesの公開元を「GitHub Actions」に設定する必要があります。GitHub Pages向けビルドでは `/sfc-tlab-web/` を使い、ローカル開発では従来どおり `/` で表示します。
+このディレクトリは独立したローカルGitリポジトリで、[sfc-tlab-web](https://github.com/keijitakeda/sfc-tlab-web) の `main` に接続しています。G案の元リポジトリは [tlab-design-test](https://github.com/Hayato1031/tlab-design-test) です。GitHub Pages向けビルドでは `/sfc-tlab-web/` を使い、ローカル開発では従来どおり `/` で表示します。
+
+### GitHub Pages の公開手順
+
+1. [Actionsシークレットの設定画面](https://github.com/keijitakeda/sfc-tlab-web/settings/secrets/actions) で、`PUBLIC_MICROCMS_API_KEY` に公開済みコンテンツのGETだけを許可したmicroCMSキーを登録する。値をソースコードに書かない。
+2. リポジトリの管理者が [Pages設定画面](https://github.com/keijitakeda/sfc-tlab-web/settings/pages) を開き、「Build and deployment」の「Source」を「GitHub Actions」に変更する。共同編集者の権限ではこの画面を開けない場合がある。
+3. `main` へのプッシュで `.github/workflows/deploy.yml` が実行される。既にプッシュ済みなら「Actions」→「Deploy site to GitHub Pages」→「Run workflow」で再実行する。成功後、Pages設定画面に公開URLが表示される。
+
+GitHubの契約上、非公開リポジトリでPagesを使えない場合は管理者側で対応を決める必要がある。リポジトリを公開設定へ変更するとソースコードも見えるため、公開サイトを作るためだけに自動で変更しない。
 
 `dist/` は生成物です。直接編集しないでください。

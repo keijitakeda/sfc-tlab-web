@@ -3,7 +3,7 @@ import { readFile, readdir, stat } from 'node:fs/promises';
 import path from 'node:path';
 
 const dist = path.resolve('dist');
-const base = process.env.GITHUB_PAGES === 'true' ? '/sfc-tlab-web/' : '/';
+const base = process.env.GITHUB_PAGES === 'true' && !process.env.SITE_URL?.trim() ? '/sfc-tlab-web/' : '/';
 const origin = 'http://localhost:4321';
 const documents = [];
 async function walk(directory) {
@@ -58,6 +58,11 @@ for (const route of ['index.html', 'en/index.html', 'takeda-kinetic-g.html', 'ta
   assert.doesNotMatch(html, /id="practice"|<img\b/);
   assert.match(html, /class="campus-map"/);
   assert.ok(html.includes(`href="${base}en/"`), `${route}: missing English navigation`);
+  assert.ok(html.includes(`href="${base}takeda-list.css"`), `${route}: stylesheet uses the wrong deployment path`);
+  if (process.env.SITE_URL?.trim()) {
+    const site = new URL(process.env.SITE_URL);
+    assert.ok(html.includes(`href="${site.origin}${base}`), `${route}: canonical/alternate URL uses the wrong domain`);
+  }
 }
 for (const route of ['posts/index.html', 'en/posts/index.html']) {
   const html = await read(path.join(dist, route));

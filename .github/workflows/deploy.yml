@@ -28,6 +28,7 @@ jobs:
         uses: withastro/action@v6
         env:
           GITHUB_PAGES: 'true'
+          SITE_URL: https://lab.keioac.jp
           PUBLIC_MICROCMS_SERVICE_ID: t-lab
           PUBLIC_MICROCMS_API_KEY: ${{ secrets.PUBLIC_MICROCMS_API_KEY }}
 

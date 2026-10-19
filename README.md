@@ -51,7 +51,7 @@ microCMSサービス `SFC-T-Lab-Web` (`t-lab.microcms.io`) の `site`、`researc
 
 ## Gitと公開先
 
-このディレクトリは独立したローカルGitリポジトリで、[sfc-tlab-web](https://github.com/keijitakeda/sfc-tlab-web) の `main` に接続しています。G案の元リポジトリは [tlab-design-test](https://github.com/Hayato1031/tlab-design-test) です。GitHub Pages向けビルドでは `/sfc-tlab-web/` を使い、ローカル開発では従来どおり `/` で表示します。
+このディレクトリは独立したローカルGitリポジトリで、[sfc-tlab-web](https://github.com/keijitakeda/sfc-tlab-web) の `main` に接続しています。G案の元リポジトリは [tlab-design-test](https://github.com/Hayato1031/tlab-design-test) です。公開先は独自ドメイン [lab.keioac.jp](https://lab.keioac.jp/) です。GitHub Actions は `SITE_URL=https://lab.keioac.jp` を指定してビルドし、CSS・JavaScript・言語切替・お問い合わせフォームをドメイン直下の `/` から読み込みます。ローカル開発も `/` です。`SITE_URL` を指定しない `GITHUB_PAGES=true` ビルドだけが従来の `/sfc-tlab-web/` を使用します。
 
 ### GitHub Pages の公開手順
 
